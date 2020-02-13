@@ -5,5 +5,17 @@
 }
 .app-content {
   display: flex;
+  flex-direction: row;
+}
+
+.app-body {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  align-self: center;
+  flex-grow: 1;
+}
+
+.page-title {
+  padding-bottom: 4rem;
 }
