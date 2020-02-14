@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import LeftNav from './components/LeftNav/LeftNav';
 import SessionInfo from './components/SessionInfo/SessionInfo';
+import SignUpTable from './components/SignUpTable/SignUpTable';
 
 import './App.scss';
 
@@ -12,8 +13,11 @@ function App() {
       <div className="app-content">
         <LeftNav />
         <div className="app-body">
-          <h1 className="page-title">About Ciara</h1>
+          <div className="page-header">
+            <h1 className="page-title">About Ciara</h1>
+          </div>
           <SessionInfo />
+          <SignUpTable />
         </div>
       </div>
     </div>
