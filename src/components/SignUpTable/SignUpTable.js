@@ -13,18 +13,6 @@ function SignUpTable() {
           <p className="sign-up-table-item__title">11:00 am</p>
           <button className="sign-up-table-item__button">Sign up</button>
         </div>
-        <div className="sign-up-table-item">
-          <p className="sign-up-table-item__title">11:00 am</p>
-          <button className="sign-up-table-item__button">Sign up</button>
-        </div>
-        <div className="sign-up-table-item">
-          <p className="sign-up-table-item__title">11:00 am</p>
-          <button className="sign-up-table-item__button">Sign up</button>
-        </div>
-        <div className="sign-up-table-item">
-          <p className="sign-up-table-item__title">11:00 am</p>
-          <button className="sign-up-table-item__button">sign up</button>
-        </div>
       </div>
     </div>
   );

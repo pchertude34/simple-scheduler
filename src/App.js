@@ -1,6 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import { loadPhotoShoots } from './utils/apiUtils';
+
+import HomePage from './pages/HomePage/HomePage';
 import LeftNav from './components/LeftNav/LeftNav';
 import SessionInfo from './components/SessionInfo/SessionInfo';
 import SignUpTable from './components/SignUpTable/SignUpTable';
@@ -13,11 +16,14 @@ function App() {
       <div className="app-content">
         <LeftNav />
         <div className="app-body">
-          <div className="page-header">
+          <Router>
+            <Route exact path="/" component={HomePage} />
+          </Router>
+          {/* <div className="page-header">
             <h1 className="page-title">About Ciara</h1>
           </div>
           <SessionInfo />
-          <SignUpTable />
+          <SignUpTable /> */}
         </div>
       </div>
     </div>
