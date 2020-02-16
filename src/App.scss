@@ -2,12 +2,11 @@
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  flex-direction: row;
 }
 .app-content {
   display: flex;
   flex-direction: row;
+  flex: 1 3 auto;
 }
 
 .app-body {
@@ -15,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   align-self: center;
-  flex-grow: 1;
+  flex-basis: 75%;
 }
 
 .page-title {
