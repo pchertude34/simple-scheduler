@@ -1,15 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import './Card.scss';
 function Card(props) {
+  const dates = props.dates
+    .map(date => moment(date.toDate()).format('MMMM Do'))
+    .join(', ');
+  console.log('dates', dates);
+
   return (
     <div className="card-body">
       {props.title && <h2 className="card-title">{props.title}</h2>}
-      {props.date && (
+      {props.dates.length > 0 && (
         <div className="card-info">
-          <span className="card-info-header">Date: </span>
-          <span className="card-info-text">{props.date}</span>
+          <span className="card-info-header">
+            {`Date${props.dates.length > 0 ? 's' : null}:`}{' '}
+          </span>
+          <span className="card-info-text">{dates}</span>
         </div>
       )}
       {props.location && (
@@ -30,7 +38,10 @@ function Card(props) {
         </div>
       )}
       <div className="align-center">
-        <button className="button button__large animated-button card-button">
+        <button
+          className="button button__large animated-button card-button"
+          onClick={props.onSignUpClicked}
+        >
           Sign up!
         </button>
       </div>
@@ -41,7 +52,8 @@ function Card(props) {
 Card.propTypes = {
   title: PropTypes.string,
   location: PropTypes.string,
-  date: PropTypes.string,
-  price: PropTypes.string
+  dates: PropTypes.arrayOf(PropTypes.any),
+  price: PropTypes.string,
+  onSignUpClicked: PropTypes.func.isRequired
 };
 export default Card;

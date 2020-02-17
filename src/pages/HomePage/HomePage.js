@@ -4,7 +4,7 @@ import { loadPhotoShoots } from '../../utils/apiUtils';
 
 import Card from '../../components/Card/Card';
 
-function HomePage() {
+function HomePage(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [photoShoots, setPhotoShoots] = useState([]);
@@ -31,17 +31,22 @@ function HomePage() {
     return () => (isMounted = false);
   }, []);
 
+  const handleViewPhotoSignupClicked = sessionId => {
+    // Route to the selected session
+    props.history.push(sessionId);
+  };
+
   const photoShootCards = photoShoots.map(photoShoot => {
-    const { title } = photoShoot;
+    const { title, slug, dates, location, price, description } = photoShoot;
     return (
       <Card
+        key={slug}
         title={title}
-        date="9/11"
-        location="Some wehere cool"
-        price="Free!"
-        description={
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-        }
+        dates={dates}
+        location={location}
+        price={price}
+        description={description}
+        onSignUpClicked={() => handleViewPhotoSignupClicked(slug)}
       />
     );
   });
