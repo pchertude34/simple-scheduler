@@ -3,6 +3,10 @@
   background-color: var(--color-gray-light-2);
   box-shadow: var(--shadow-medium);
   padding: 2rem 4rem;
+
+  &:not(:last-child) {
+    margin-bottom: 8rem;
+  }
 }
 
 .card-title {

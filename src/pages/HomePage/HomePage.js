@@ -37,16 +37,23 @@ function HomePage(props) {
   };
 
   const photoShootCards = photoShoots.map(photoShoot => {
-    const { title, slug, dates, location, price, description } = photoShoot;
+    const {
+      title,
+      sessionId,
+      dates,
+      location,
+      price,
+      description
+    } = photoShoot;
     return (
       <Card
-        key={slug}
+        key={sessionId}
         title={title}
         dates={dates}
         location={location}
         price={price}
         description={description}
-        onSignUpClicked={() => handleViewPhotoSignupClicked(slug)}
+        onSignUpClicked={() => handleViewPhotoSignupClicked(sessionId)}
       />
     );
   });
