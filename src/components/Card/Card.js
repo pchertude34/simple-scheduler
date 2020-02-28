@@ -5,9 +5,8 @@ import moment from 'moment';
 import './Card.scss';
 function Card(props) {
   const dates = props.dates
-    .map(date => moment(date.toDate()).format('MMMM Do'))
+    .map(date => moment(date).format('MMMM Do'))
     .join(', ');
-  console.log('dates', dates);
 
   return (
     <div className="card-body">
@@ -52,7 +51,7 @@ function Card(props) {
 Card.propTypes = {
   title: PropTypes.string,
   location: PropTypes.string,
-  dates: PropTypes.arrayOf(PropTypes.any),
+  dates: PropTypes.arrayOf(PropTypes.string),
   price: PropTypes.string,
   onSignUpClicked: PropTypes.func.isRequired
 };
