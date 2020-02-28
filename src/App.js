@@ -5,6 +5,7 @@ import { loadPhotoShoots } from './utils/apiUtils';
 
 import HomePage from './pages/HomePage/HomePage';
 import LeftNav from './components/LeftNav/LeftNav';
+import SignUpPage from './pages/SignUpPage';
 import SessionInfo from './components/SessionInfo/SessionInfo';
 import SignUpTable from './components/SignUpTable/SignUpTable';
 
@@ -18,6 +19,7 @@ function App() {
         <div className="app-body">
           <Router>
             <Route exact path="/" component={HomePage} />
+            <Route path="/:sessionId" component={SignUpPage} />
           </Router>
           {/* <div className="page-header">
             <h1 className="page-title">About Ciara</h1>
