@@ -12,14 +12,29 @@ function SignUpTable(props) {
       </p>
       <div className="sign-up-table">
         {props.sessions.map(session => (
-          <div className="sign-up-table-item">
+          <div
+            className="sign-up-table-item"
+            key={`session-time-${session.date}`}
+          >
             <p className="sign-up-table-item__title">
               {moment(session.date).format('H:mm A')}
             </p>
-            {session.available && (
+            {session.available ? (
               <button className="button animated-button sign-up-table-item__button">
                 Sign up
               </button>
+            ) : (
+              <div className="sign-up-table-item__name">
+                <div className="initials">
+                  <div className="initials__inner">
+                    {session.firstName[0]}
+                    {session.lastName[0]}
+                  </div>
+                </div>
+                <p className="sign-up-table-item__name--text">
+                  {session.firstName} {session.lastName}
+                </p>
+              </div>
             )}
           </div>
         ))}

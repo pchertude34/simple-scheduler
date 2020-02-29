@@ -66,6 +66,27 @@
   }
 }
 
+.initials {
+  font-weight: 500;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  border-radius: 50%;
+  height: 4.5rem;
+  width: 4.5rem;
+  color: #fff;
+  background-color: var(--color-secondary);
+  overflow: hidden;
+
+  position: relative;
+
+  &__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .align-center {
   text-align: center;
 }
