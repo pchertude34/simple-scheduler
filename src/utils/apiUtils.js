@@ -2,7 +2,6 @@ import axios from '../axiosconfig';
 
 export function loadPhotoShoots() {
   // Get all of the upcoming photo shoots
-  console.log('MAKING THE REQUEST');
   return axios
     .get('/sessions')
     .then(response => {
@@ -11,4 +10,9 @@ export function loadPhotoShoots() {
     .catch(error => console.log(error));
 }
 
-export function loadSessionSignUp(sessionId) {}
+export function loadSessionSignUp(sessionId) {
+  return axios
+    .get(`/sessions/${sessionId}`)
+    .then(response => response.data)
+    .catch(error => console.log(error));
+}

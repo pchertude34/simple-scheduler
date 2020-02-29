@@ -5,36 +5,38 @@ import moment from 'moment';
 import './SignUpTable.scss';
 
 function SignUpTable(props) {
-  console.log('props', props);
-
-  props.sessions.map(session => {
-    console.log(moment(session.time).format('MMM Do, YYYY'));
-  });
   return (
     <div className="sign-up-table-wrapper">
-      <p className="table-title">Date: febuaray 19th, 2020</p>
+      <p className="table-title">
+        {moment(props.date).format('MMMM Do, YYYY')}
+      </p>
       <div className="sign-up-table">
-        <div className="sign-up-table-item">
-          <p className="sign-up-table-item__title">11:00 am</p>
-          <button className="sign-up-table-item__button">Sign up</button>
-        </div>
-        <div className="sign-up-table-item">
-          <p className="sign-up-table-item__title">11:00 am</p>
-          <button className="sign-up-table-item__button">Sign up</button>
-        </div>
+        {props.sessions.map(session => (
+          <div className="sign-up-table-item">
+            <p className="sign-up-table-item__title">
+              {moment(session.date).format('H:mm A')}
+            </p>
+            {session.available && (
+              <button className="button animated-button sign-up-table-item__button">
+                Sign up
+              </button>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
 SignUpTable.propTypes = {
+  date: PropTypes.string.isRequired,
   sessions: PropTypes.arrayOf(
     PropTypes.shape({
       available: PropTypes.bool,
       firstName: PropTypes.string,
       lastName: PropTypes.string,
-      time: PropTypes.string
-    })
+      date: PropTypes.string
+    }).isRequired
   )
 };
 export default SignUpTable;
