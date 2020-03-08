@@ -20,15 +20,18 @@ function SignUpTable(props) {
               {moment(session.date).format('H:mm A')}
             </p>
             {session.available ? (
-              <button className="button animated-button sign-up-table-item__button">
+              <button
+                className="button animated-button sign-up-table-item__button"
+                onClick={() => props.onSignUpClicked(session)}
+              >
                 Sign up
               </button>
             ) : (
               <div className="sign-up-table-item__name">
                 <div className="initials">
                   <div className="initials__inner">
-                    {session.firstName[0]}
-                    {session.lastName[0]}
+                    {session.firstName ? session.firstName[0] : null}
+                    {session.lastName ? session.lastName[0] : null}
                   </div>
                 </div>
                 <p className="sign-up-table-item__name--text">
@@ -52,6 +55,7 @@ SignUpTable.propTypes = {
       lastName: PropTypes.string,
       date: PropTypes.string
     }).isRequired
-  )
+  ),
+  onSignUpClicked: PropTypes.func.isRequired
 };
 export default SignUpTable;

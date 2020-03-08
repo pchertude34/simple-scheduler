@@ -50,6 +50,25 @@
   }
 }
 
+.text-button {
+  color: #0364ac;
+  font-size: 1.6rem;
+  padding: 1.6rem;
+  border: none;
+  background-color: inherit;
+  outline: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-gray-light-2);
+  }
+
+  &:active {
+    background-color: var(--color-gray-light);
+  }
+}
+
 .animated-button {
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.6);
   transition: all 0.2s;

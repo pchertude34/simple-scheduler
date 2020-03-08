@@ -16,3 +16,10 @@ export function loadSessionSignUp(sessionId) {
     .then(response => response.data)
     .catch(error => console.log(error));
 }
+
+export function signUpForSession(sessionId, attendeeInfo) {
+  return axios
+    .post(`/sessions/${sessionId}`, attendeeInfo)
+    .then(response => response.data)
+    .catch(error => console.log(error));
+}

@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { loadPhotoShoots } from './utils/apiUtils';
-
 import HomePage from './pages/HomePage/HomePage';
 import LeftNav from './components/LeftNav/LeftNav';
-import SignUpPage from './pages/SignUpPage';
-import SessionInfo from './components/SessionInfo/SessionInfo';
-import SignUpTable from './components/SignUpTable/SignUpTable';
+import SignUpPage from './pages/SignUpPage/SignUpPage';
 
 import './App.scss';
 
@@ -21,11 +17,6 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route path="/:sessionId" component={SignUpPage} />
           </Router>
-          {/* <div className="page-header">
-            <h1 className="page-title">About Ciara</h1>
-          </div>
-          <SessionInfo />
-          <SignUpTable /> */}
         </div>
       </div>
     </div>
