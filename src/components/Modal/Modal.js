@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import './Modal.scss';
@@ -16,7 +17,7 @@ function Modal(props) {
     }
   }, [isOpen]);
 
-  return (
+  return ReactDOM.createPortal(
     <ModalContext.Provider value={{ onClose }}>
       {props.isOpen ? (
         <React.Fragment>
@@ -24,7 +25,8 @@ function Modal(props) {
           <div className="modal">{props.children}</div>
         </React.Fragment>
       ) : null}
-    </ModalContext.Provider>
+    </ModalContext.Provider>,
+    document.getElementById('root')
   );
 }
 
@@ -34,11 +36,7 @@ export function Header(props) {
 
   return (
     <div className="modal-header">
-      {typeof children === 'string' ? (
-        <h2 className="modal-header__text">{children}</h2>
-      ) : (
-        children
-      )}
+      {typeof children === 'string' ? <h2 className="modal-header__text">{children}</h2> : children}
       <span className="modal-header__close" onClick={onClose}>
         &times;
       </span>
