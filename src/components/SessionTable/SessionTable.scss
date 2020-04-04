@@ -1,0 +1,45 @@
+.session-table {
+  width: 100%;
+  font-size: 1.8rem;
+  text-align: left;
+  background-color: var(--color-gray-extra-light);
+  border-spacing: 0;
+  display: table;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.session-table-header {
+  color: #fff;
+  background-color: var(--color-primary);
+
+  th {
+    padding: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+.session-table-body {
+  tr:nth-child(even) {
+    background-color: var(--color-gray-light-2);
+  }
+  tr {
+    background-color: var(--color-gray-extra-light);
+  }
+
+  td {
+    padding: 1.6rem;
+    font-weight: 400;
+  }
+}
+
+.session-date {
+  display: block;
+
+  &:not(:last-child) {
+    padding-bottom: 0.8rem;
+  }
+}

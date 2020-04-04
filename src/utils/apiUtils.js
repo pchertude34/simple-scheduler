@@ -23,3 +23,7 @@ export function signUpForSession(sessionId, attendeeInfo) {
     .then(response => response.data)
     .catch(error => console.log(error));
 }
+
+export function loadAllPhotoShootsAndDetails() {
+  return axios.get('/all').then(response => response.data);
+}
